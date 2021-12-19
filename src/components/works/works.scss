@@ -3,6 +3,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+    .arrow {
+        height: 50px;
+        position: absolute;
+    }
 
     .slider {
         height: 400px;
