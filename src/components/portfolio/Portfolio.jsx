@@ -1,10 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PortfolioList from "../portfolioList/PortfolioList"
 import "./portfolio.scss"
+import {
+    featuredPortfolio,
+    webPortfolio,
+    mobilePortfolio,
+    designPortfolio,
+    contentPortfolio
+} from "../../data"
 
 export default function Portfolio() {
 
     const [selected, setSelected] = useState("retratoF")
+    const [data, setData] = useState([])
 
     const list = [
         {
@@ -31,7 +39,34 @@ export default function Portfolio() {
             id: "retratosM",
             title: "Retratos Masculino"
         }
-    ]
+    ];
+
+    useEffect(()=> {
+
+        switch(selected) {
+            case "retratoF":
+                setData(featuredPortfolio)
+                break;
+            case "retratoI":
+                setData(webPortfolio)
+                break;
+            case "marcas":
+                setData(mobilePortfolio)
+                break;
+            case "casais":
+                setData(designPortfolio)
+                break;
+            case "eventos":
+                setData(contentPortfolio)
+                break;
+            case "retratosM":
+                setData(contentPortfolio)
+                break;
+            default:
+                setData(featuredPortfolio)
+        }
+
+    },[selected])
 
     return (
         <div className="portfolio" id="portfolio">
@@ -42,34 +77,12 @@ export default function Portfolio() {
                 ))}
             </ul>
             <div className="container">
+                {data.map(d => (
                 <div className="item">
-                    <img src="https://play-lh.googleusercontent.com/berY6CZvEXkoH72AdLQI9r6CcHLmMAyMyL1bAjDFaqwHJIJM-QTC5SwVQsAe8Bi6fCfq" alt="" />
-                    <h3>Banking App</h3>
+                    <img src={d.img} alt="" />
+                    <h3>{d.title}</h3>
                 </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
-                <div className="item">
-                    <img src="https://www.figmacrush.com/wp-content/uploads/2019/07/Banking-app-Figma-mobile-template-1014x487.jpg" alt="" />
-                    <h3>Banking App</h3>
-                </div>
+                ))}
             </div>
         </div>
     )
