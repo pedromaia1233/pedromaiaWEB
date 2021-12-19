@@ -6,8 +6,19 @@
     position: relative;
 
     .arrow {
-        height: 50px;
+        height: 90px;
         position: absolute;
+        cursor: pointer;
+
+
+        &.left {
+            left: 250px;
+            transform: rotateY(180deg);
+        }
+
+        &.right {
+            right: 250px;
+        }
     }
 
     .slider {
@@ -15,6 +26,7 @@
         display: flex;
         position: absolute;
         left: 0;
+        transition: all 1s ease-out;
 
         .container {
             width: 100vw;
