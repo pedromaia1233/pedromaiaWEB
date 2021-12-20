@@ -1,25 +1,39 @@
-import "./menu.scss"
+import "./menu.scss";
+import Intro from "../intro/Intro";
+import Portfolio from "../portfolio/Portfolio";
+//import Works from "./components/works/Works";
+import Contact from "../contact/Contact"
+import About from "../about/About"
+import { BrowserRouter as Router, Route ,Link, Routes} from "react-router-dom"
 
 export default function Menu({menuOpen, setMenuOpen}) {
+    const handleClick = () => {
+        setMenuOpen(false)
+    }
+
+
     return (
         <div className={"menu " + (menuOpen && "active")}>
-            <ul>
+            <Router>
+                <ul>
                 <li onClick={() => setMenuOpen(false)}>
-                    <a href="#intro">Home</a>
+                    <Link to="/">Início</Link>
+                </li>
+                <li onClick={() => handleClick()}>
+                    <Link to="/about">Sobre mim</Link>
                 </li>
                 <li onClick={() => setMenuOpen(false)} >
-                    <a href="#portfolio">Portfolio</a>
+                    <Link to="/portfolio">Portfolio</Link>
+                </li>
+                
+                <li onClick={() => setMenuOpen(false)}>
+                    <Link to="/testimonials">Testemunhos</Link>
                 </li>
                 <li onClick={() => setMenuOpen(false)}>
-                    <a href="#works">Works</a>
-                </li>
-                <li onClick={() => setMenuOpen(false)}>
-                    <a href="#testimonials">Testimonials</a>
-                </li>
-                <li onClick={() => setMenuOpen(false)}>
-                    <a href="#contact">Contact</a>
+                    <Link to="/contact">Contacto</Link>
                 </li>
             </ul>
+            </Router>
         </div>
     )
 }

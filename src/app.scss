@@ -1,13 +1,61 @@
-.app {
+@import "./global.scss";
+
+html, body, #root, .app {
     height: 100vh;
+
+    .menu{
+        width: 300px;
+        height: 100vh;
+        background-color: $mainColor;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 1s ease;
+    
+    
+        &.active{
+            right: 0;
+        }
+    
+    
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 30px;
+            font-weight: 300;
+            color: white;
+            width: 60%;
+    
+            li{
+                margin-bottom: 25px;
+                a{
+                    font-size: inherit;
+                    color: inherit;
+                    text-decoration: none;
+                }
+    
+                &:hover{
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 
     .sections {
         width: 100%;
         height: calc(100vh - 70px);
         background-color: lightsalmon;
         position: relative;
+        display: flex;
+        overflow-x: none;
         top: 70px;
-        scroll-behavior: smooth;
+        //scroll-behavior: smooth;
         scroll-snap-type: y mandatory;
         scrollbar-width: none; // for firefox
         &::-webkit-scrollbar{
@@ -17,7 +65,8 @@
         > * {
             width: 100vw;
             height: calc(100vh - 70px);
-            scroll-snap-align: start;
+            display: flex;
+            overflow-x: none;
         }
     }
 }

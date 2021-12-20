@@ -18,20 +18,22 @@ export default function Intro() {
 
     return (
         <div className="intro" id="intro">
-            <div className="left">
-                <div className="imgContainer">
-                    <img src="assets/davidgay.png" alt="" />
+            <div className="imageInitial">
+                <div className="right">
+                    <div className="wrapper">
+                        <h2>Hi There, I'm </h2>
+                        <h1>Pedro Maia</h1>
+                        <h3>I love <span ref={textRef}></span></h3>
+                    </div>
                 </div>
             </div>
-            <div className="right">
-                <div className="wrapper">
-                    <h2>Hi There, I'm </h2>
-                    <h1>Pedro Maia</h1>
-                    <h3>I love <span ref={textRef}></span></h3>
-                </div>
-                <a href="#portfolio">
-                    <img src="assets/down.png" alt="" />
-                </a>
+            
+            <div className="secondPart">
+                <button>OLA</button>
+                <div>OLAASAS</div>
+                <div>OLAASAS</div>
+                <div>OLAASAS</div>
+                <div>OLAASAS</div>
             </div>
         </div>
     )
