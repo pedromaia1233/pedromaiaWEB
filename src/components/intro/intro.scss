@@ -3,6 +3,37 @@
 .intro {
     background-color: white;
     display: flex;
+    background-image: url("https://images-pw.pixieset.com/elementfield/01319295/4D7A4573-7c719fe7.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animate;
+    animation-direction: alternate;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state:running ;
+    animation-timing-function:ease-in-out ;
+
+    @keyframes animate {
+        0%{
+            background-image: url("https://images-pw.pixieset.com/elementfield/69219295/4D7A8890-08d25b2d.jpg");
+        }
+        25%{
+            background-image: url("https://images-pw.pixieset.com/elementfield/30319295/4D7A0074PB-876f2e22.jpg");
+        }
+        50%{
+            background-image: url("https://i.ibb.co/mcTVV9p/262860400-307535207899301-4475015602759072354-n.jpg");
+        }
+        75%{
+            background-image: url("https://i.ibb.co/0rwV28z/251920701-208866348034483-7517072832749288556-n.jpg");
+        }
+        100%{
+            background-image: url("https://images-pw.pixieset.com/elementfield/01319295/4D7A4573-7c719fe7.jpg");
+        }
+    }
 
 
     @include mobile{
@@ -12,7 +43,7 @@
 
     .left {
         flex: 0.5;
-
+        
         overflow: hidden;
 
         .imgContainer {
@@ -24,6 +55,7 @@
             align-items: flex-end;
             justify-content: center;
             float: right;
+            display: none;
 
             @include mobile {
                 align-items: start;
