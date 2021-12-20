@@ -7,15 +7,15 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     transition: 5s;
 
-    animation-name: animate;
-    animation-direction: alternate;
-    animation-duration: 30s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-play-state:running ;
-    animation-timing-function:ease-in-out ;
+    -moz-animation: animate 30s alternate forwards infinite ease-in-out;
+    -webkit-animation: animate 30s alternate forwards infinite ease-in-out;
+    animation: animate 30s alternate forwards infinite ease-in-out;
 
     @keyframes animate {
         0%{
